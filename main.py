@@ -1,4 +1,4 @@
-from modelo import Regr_polinomial
+from modelo import regressão_polinomial
 
 import pandas as pd
 import numpy as np
@@ -23,5 +23,5 @@ y = df_resid['preco']
 
 #usando o modelo de regressão polinomial no DataFrame
 
-Regr_polinomial(X, y)
+regressão_polinomial(X, y)
 
