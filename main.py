@@ -1,7 +1,5 @@
 from modelo import Regr_polinomial
 
-from sklearn.preprocessing import PolynomialFeatures
-
 import pandas as pd
 import numpy as np
 
