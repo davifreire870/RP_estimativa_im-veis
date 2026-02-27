@@ -1,27 +1,35 @@
-from modelo import regressão_polinomial
+from modelo import regressao_polinomial
+from graficos import g_real_vs_predito, g_residuos, histograma_residuos
+
+from sklearn.preprocessing import PolynomialFeatures
 
 import pandas as pd
 import numpy as np
 
 #importando e limpando o DataFrame
 
-df_resid = pd.read_excel('/home/davi-dos-santos-freire/VSCode/RP_imóveis/residencias.xlsx')
+df_residencias = pd.read_excel('/home/davi-dos-santos-freire/VSCode/RP_imóveis/residencias.xlsx')
 
 #Limpando o DataFrame
 
-df_resid['area_m2'] = pd.to_numeric(df_resid['area_m2'], errors='coerce')
-df_resid['quartos'] = pd.to_numeric(df_resid['quartos'], errors='coerce')           #Transformando valores que não numéricos em NaN
-df_resid['idade_casa'] = pd.to_numeric(df_resid['idade_casa'], errors='coerce')
-df_resid['preco'] = pd.to_numeric(df_resid['preco'], errors='coerce')
+df_residencias['area_m2'] = pd.to_numeric(df_residencias['area_m2'], errors='coerce')
+df_residencias['quartos'] = pd.to_numeric(df_residencias['quartos'], errors='coerce')           #Transformando valores que não numéricos em NaN
+df_residencias['idade_casa'] = pd.to_numeric(df_residencias['idade_casa'], errors='coerce')
+df_residencias['preco'] = pd.to_numeric(df_residencias['preco'], errors='coerce')
 
-df_resid = df_resid.dropna()                                                        #Removendo linhas com valores NaN do DataFrame
+numeric_cols = df_residencias.select_dtypes(include=['number']).columns
+df_residencias = df_residencias[(df_residencias[numeric_cols] >= 0).all(axis=1)]                #Removendo valores negativos do DataFrame
 
+df_residencias = df_residencias.dropna()                                                        #Removendo linhas com valores NaN do DataFrame
+
+df_residencias.head()
 #Definindo variáveis
 
-X = df_resid.drop('preco', axis=1)
-y = df_resid['preco']
+X = df_residencias.drop('preco', axis=1)
+y = df_residencias['preco']
 
 #usando o modelo de regressão polinomial no DataFrame
 
-regressão_polinomial(X, y)
+regressao_polinomial(X, y)
 
+#Criando gráficos do modelo
