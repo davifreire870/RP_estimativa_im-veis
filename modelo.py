@@ -3,7 +3,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error, root_mean_squared_error
 
-def Regr_polinomial(X, y):
+def regressão_polinomial(X, y):
     conversor_polinomial = PolynomialFeatures(degree=2, include_bias=False)
     X_poli = conversor_polinomial.fit_transform(X)
 
