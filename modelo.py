@@ -3,6 +3,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error, root_mean_squared_error
 
+#Criando função do modelo de regressão polinomial
+
 def regressão_polinomial(X, y):
     conversor_polinomial = PolynomialFeatures(degree=2, include_bias=False)
     X_poli = conversor_polinomial.fit_transform(X)
@@ -16,7 +18,7 @@ def regressão_polinomial(X, y):
     erro_medio_absoluto = mean_absolute_error(previsoes, y_teste)
     raiz_do_erro_medio_quadratico = root_mean_squared_error(previsoes, y_teste)
 
-    # Fazendo estimativas com dados informados pelo usuário
+    #Fazendo estimativas de acordo com os dados informados pelo usuário
 
     dados_usuario = []
 
