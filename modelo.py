@@ -44,8 +44,8 @@ def regressão_polinomial(X, y):
     dados_transformados = conversor_polinomial.transform([dados_usuario])
     previsao = modelo.predict(dados_transformados).round(2)
 
-    print('---------------------------------------------------------------')
+    print('=' * 60)
     print(f'Sua casa tem o preço de mercado de aproximadamente R${previsao[0]}')
-    print('---------------------------------------------------------------')
+    print('=' * 60)
 
     # print(f"O modelo fez as previsões e as taxas de erro são a média de: \n\nMAE: {erro_medio_absoluto}; \nRMSE: {raiz_do_erro_medio_quadratico}")
