@@ -37,7 +37,7 @@ def Regr_polinomial(X, y):
     except ValueError:
         print('O valor digitado é inválido! Por favor, digite um valor válido.')
 
-#Calculando preço baseado nos dados fornecidos pelo usuário   
+    #Calculando preço baseado nos dados fornecidos pelo usuário   
 
     dados_transformados = conversor_polinomial.transform([dados_usuario])
     previsao = modelo.predict(dados_transformados).round(2)
